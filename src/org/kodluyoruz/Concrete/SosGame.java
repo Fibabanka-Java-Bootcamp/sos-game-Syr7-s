@@ -245,7 +245,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     private boolean isMatrixIndexNull(int indexX, int indexY) {
         if (sosGameMatrix[indexX][indexY] == null) {
             return true;
-        } else if (sosGameMatrix[indexX][indexY] == "S") {
+        } else if (sosGameMatrix[indexX][indexY].equals("S")) {
             System.out.println("Please,Re-enter Index values.");
             return false;
         } else {
