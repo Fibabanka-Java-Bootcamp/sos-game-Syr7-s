@@ -178,23 +178,27 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
                     "if is not left null field on the game board, you should write C (Control) letter. : ");
             String decision = reader.next();
             System.out.println();
-            if (decision.equals("Y")) {
-                return;
-            } else if (decision.equals("C")) {
-                numberOfMatrixElementsControl();
-            } else if (decision.equals("N")) {
-                try {
-                    gameStart();
-                } catch (InputMismatchException exception) {
-                    System.out.println("Invalid value input.");
-                    System.out.println();
-                    numberOfMatrixElements++;
-                } catch (RuntimeException exception) {
-                    System.out.println("Run Time exceptİon was occurred.");
-                }
+            switch (decision) {
+                case "Y":
+                    return;
+                case "C":
+                    numberOfMatrixElementsControl();
+                    break;
+                case "N":
+                    try {
+                        gameStart();
+                    } catch (InputMismatchException exception) {
+                        System.out.println("Invalid value input.");
+                        System.out.println();
+                        numberOfMatrixElements++;
+                    } catch (RuntimeException exception) {
+                        System.out.println("Run Time exceptİon was occurred.");
+                    }
 
-            } else {
-                System.out.println("Invalid character input.");
+                    break;
+                default:
+                    System.out.println("Invalid character input.");
+                    break;
             }
         }
     }
@@ -219,7 +223,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         numberOfMatrixElements--;
         while (true) {
             playerEnterIndexValues();
-            indexState = isArrayIndexNull(playerIndexX, playerIndexY);
+            indexState = isMatrixIndexNull(playerIndexX, playerIndexY);
             if (indexState) {
                 break;
             }
@@ -236,7 +240,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         numberOfMatrixElements--;
         while (true) {
             computerEnterIndexValues();
-            indexState = isArrayIndexNull(computerIndexX, computerIndexY);
+            indexState = isMatrixIndexNull(computerIndexX, computerIndexY);
             if (indexState)
                 break;
         }
@@ -246,7 +250,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         numberOfMatrixElementsControl();
     }
 
-    private boolean isArrayIndexNull(int indexX, int indexY) {
+    private boolean isMatrixIndexNull(int indexX, int indexY) {
         if (sosGameMatrix[indexX][indexY] == null) {
             return true;
         } else if (sosGameMatrix[indexX][indexY] == "S") {
