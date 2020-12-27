@@ -61,11 +61,8 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         System.out.println("--------------------------------------------");
         System.out.println("------------------SOS Panel-----------------");
         int i = 0;
-        for (int j = 0; j < dimension; j++) {
-            if (i == 0) {
-                System.out.print("   " + (j + 1) + "  ");
-            }
-        }
+        for (int j = 0; j < dimension; j++)
+            System.out.print("   " + (j + 1) + "  ");
         System.out.println();
         for (String[] values : sosGameMatrix) {
             System.out.print(i + 1 + " ");
