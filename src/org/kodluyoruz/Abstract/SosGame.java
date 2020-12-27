@@ -6,7 +6,7 @@ public interface SosGame {
 
     int setDimension();
 
-    void sosGameMatrixDimension();
+    void sosGameMatrixDimension(int dimension);
 
     void sosGameBoard();
 
