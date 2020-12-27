@@ -5,8 +5,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class SosGame implements org.kodluyoruz.Abstract.SosGame {
-    private Random random = new Random();
-    private Scanner reader = new Scanner(System.in);
+    Random random = new Random();
+    Scanner reader = new Scanner(System.in);
     //Arrays
     private String[][] sosGameMatrix;
     //String values
@@ -218,13 +218,10 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
 
     private void playerContinueGame() {
         numberOfMatrixElements--;
-        while (true) {
+        do {
             playerEnterIndexValues();
             indexState = isMatrixIndexNull(playerIndexX, playerIndexY);
-            if (indexState) {
-                break;
-            }
-        }
+        } while (!indexState);
 
         characterEnterToThePanel(playerIndexX, playerIndexY, playerEnterCharacter);
         sosGameBoard();
@@ -235,12 +232,10 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
 
     private void computerContinueGame() {
         numberOfMatrixElements--;
-        while (true) {
+        do {
             computerEnterIndexValues();
             indexState = isMatrixIndexNull(computerIndexX, computerIndexY);
-            if (indexState)
-                break;
-        }
+        } while (!indexState);
         characterEnterToThePanel(computerIndexX, computerIndexY, computerEnterCharacter);
         sosGameBoard();
         scoreBoard();
