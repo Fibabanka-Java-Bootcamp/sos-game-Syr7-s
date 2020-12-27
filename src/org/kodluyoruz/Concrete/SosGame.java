@@ -257,16 +257,16 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     @Override
     public void characterEnterToThePanel(int indexX, int indexY, String character) {
         sosGameMatrix[indexX][indexY] = character;
-        if (sosGameMatrix[indexX][indexY] == "S" && playerEnterCharacter.equals("S") && playerOrder) {
+        if (sosGameMatrix[indexX][indexY].equals("S") && playerEnterCharacter.equals("S") && playerOrder) {
             playerOrderAndSletterControl(indexX, indexY);
             score = 0;
-        } else if (sosGameMatrix[indexX][indexY] == "S" && computerEnterCharacter.equals("S") && computerOrder) {
+        } else if (sosGameMatrix[indexX][indexY].equals("S") && computerEnterCharacter.equals("S") && computerOrder) {
             computerOrderAndSletterControl(indexX, indexY);
             score = 0;
-        } else if (sosGameMatrix[indexX][indexY] == "O" && playerEnterCharacter.equals("O") && playerOrder) {
+        } else if (sosGameMatrix[indexX][indexY].equals("O") && playerEnterCharacter.equals("O") && playerOrder) {
             playerOrderOletterControl(indexX, indexY);
             score = 0;
-        } else if (sosGameMatrix[indexX][indexY] == "O" && computerEnterCharacter.equals("O") && computerOrder) {
+        } else if (sosGameMatrix[indexX][indexY].equals("O") && computerEnterCharacter.equals("O") && computerOrder) {
             computerOrderAndOletterControl(indexX, indexY);
             score = 0;
         }
