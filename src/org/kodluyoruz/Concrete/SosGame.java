@@ -371,18 +371,23 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         if (playerScore > computerScore) {
             System.out.println("--------------------------------------------");
             System.out.println("Player won the game!");
+            System.out.println("--------------------------------------------");
             scoreBoard();
             System.out.println("--------------------------------------------");
+
         } else if (playerScore < computerScore) {
             System.out.println("--------------------------------------------");
             System.out.println("Computer won the game !");
             System.out.println("--------------------------------------------");
             scoreBoard();
+            System.out.println("--------------------------------------------");
         } else {
             System.out.println("--------------------------------------------");
             System.out.println("The game ended in a draw !");
             System.out.println("--------------------------------------------");
             scoreBoard();
+            System.out.println("--------------------------------------------");
+            System.out.println("----------------------------The Game Over----------------------------------");
         }
     }
 }
