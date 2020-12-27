@@ -19,7 +19,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     private int computerIndexX;
     private int computerIndexY;
     private int numberOfMatrixElements;
-    private int sosCount = 0;
+    private int sosCount;
     private int score;
     private int playerScore;
     private int computerScore;
@@ -225,7 +225,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
             }
         }
 
-        characterEnterToThePanel(playerIndexX, playerIndexY, playerEnterCharacter, playerOrder);
+        characterEnterToThePanel(playerIndexX, playerIndexY, playerEnterCharacter);
         sosGameBoard();
         scoreBoard();
         numberOfMatrixElementsControl();
@@ -240,7 +240,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
             if (indexState)
                 break;
         }
-        characterEnterToThePanel(computerIndexX, computerIndexY, computerEnterCharacter, computerOrder);
+        characterEnterToThePanel(computerIndexX, computerIndexY, computerEnterCharacter);
         sosGameBoard();
         scoreBoard();
         numberOfMatrixElementsControl();
@@ -259,25 +259,25 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     }
 
     @Override
-    public void characterEnterToThePanel(int indexX, int indexY, String character, boolean order) {
+    public void characterEnterToThePanel(int indexX, int indexY, String character) {
         sosGameMatrix[indexX][indexY] = character;
         if (sosGameMatrix[indexX][indexY] == "S" && playerEnterCharacter.equals("S") && playerOrder) {
-            playerOrderAndSletterControl(indexX, indexY, order);
+            playerOrderAndSletterControl(indexX, indexY);
             score = 0;
         } else if (sosGameMatrix[indexX][indexY] == "S" && computerEnterCharacter.equals("S") && computerOrder) {
-            computerOrderAndSletterControl(indexX, indexY, order);
+            computerOrderAndSletterControl(indexX, indexY);
             score = 0;
         } else if (sosGameMatrix[indexX][indexY] == "O" && playerEnterCharacter.equals("O") && playerOrder) {
-            playerOrderOletterControl(indexX, indexY, order);
+            playerOrderOletterControl(indexX, indexY);
             score = 0;
         } else if (sosGameMatrix[indexX][indexY] == "O" && computerEnterCharacter.equals("O") && computerOrder) {
-            computerOrderAndOletterControl(indexX, indexY, order);
+            computerOrderAndOletterControl(indexX, indexY);
             score = 0;
         }
     }
 
-    private void playerOrderAndSletterControl(int indexX, int indexY, boolean order) {
-        sosCount = characterScontrol(indexX, indexY, order);
+    private void playerOrderAndSletterControl(int indexX, int indexY) {
+        sosCount = characterScontrol(indexX, indexY);
         if (sosCount > 0) {
             System.out.println("Player won " + sosCount + " point\nThus, the Player won another game.");
             playerScore += score;
@@ -287,8 +287,8 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
-    private void computerOrderAndSletterControl(int indexX, int indexY, boolean order) {
-        sosCount = characterScontrol(indexX, indexY, order);
+    private void computerOrderAndSletterControl(int indexX, int indexY) {
+        sosCount = characterScontrol(indexX, indexY);
         if (sosCount > 0) {
             System.out.println("Computer won " + sosCount + " point.\nThus, the Computer won another game.");
             computerScore += score;
@@ -298,8 +298,8 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
-    private void playerOrderOletterControl(int indexX, int indexY, boolean order) {
-        sosCount = characterOcontrol(indexX, indexY, order);
+    private void playerOrderOletterControl(int indexX, int indexY) {
+        sosCount = characterOcontrol(indexX, indexY);
         if (sosCount > 0 && sosCount <= 2) {
             System.out.println("Player won 1 point\nThus, the Player won another game.");
             playerScore++;
@@ -312,8 +312,8 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
-    private void computerOrderAndOletterControl(int indexX, int indexY, boolean order) {
-        sosCount = characterOcontrol(indexX, indexY, order);
+    private void computerOrderAndOletterControl(int indexX, int indexY) {
+        sosCount = characterOcontrol(indexX, indexY);
         if (sosCount > 0 && sosCount <= 2) {
             System.out.println("Computer won 1 point\nThus, the Computer won another game.");
             computerScore++;
@@ -327,13 +327,13 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     }
 
     @Override
-    public int characterScontrol(int indexX, int indexY, boolean order) {
+    public int characterScontrol(int indexX, int indexY) {
         String selectedValueOne = sosGameMatrix[indexX][indexY];
         System.out.println("Selected Value : " + selectedValueOne);
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
                 if (i == 0 && j == 0) continue;
-                if (order && selectedValueOne == "S") {
+                if (selectedValueOne == "S") {
                     if (indexX + 2 * i >= 0 && indexX + 2 * i < dimension && indexY + 2 * j >= 0 && indexY + 2 * j < dimension) {
                         if (sosGameMatrix[indexX + i][indexY + j] == "O" && sosGameMatrix[indexX + 2 * i][indexY + 2 * j] == "S") {
                             score++;
@@ -347,13 +347,13 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     }
 
     @Override
-    public int characterOcontrol(int indexX, int indexY, boolean order) {
+    public int characterOcontrol(int indexX, int indexY) {
         String selectedValueOne = sosGameMatrix[indexX][indexY];
         System.out.println("Selected Value : " + selectedValueOne);
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
                 if (i == 0 && j == 0) continue;
-                if (order && selectedValueOne == "O") {
+                if (selectedValueOne == "O") {
                     if ((indexX + i >= 0 && indexX + i < dimension && indexY + j >= 0 && indexY + j < dimension)
                             && (indexX - i >= 0 && indexX - i < dimension && indexY - j >= 0 && indexY - j < dimension)) {
                         if (sosGameMatrix[indexX + i][indexY + j] == "S" && sosGameMatrix[indexX - i][indexY - j] == "S") {
