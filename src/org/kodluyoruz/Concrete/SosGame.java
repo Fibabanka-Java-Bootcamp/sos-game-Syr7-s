@@ -324,12 +324,11 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
 
     @Override
     public int characterScontrol(int indexX, int indexY) {
-        String selectedValueOne = sosGameMatrix[indexX][indexY];
-        System.out.println("Selected Value : " + selectedValueOne);
+        System.out.println("Selected Value : " + sosGameMatrix[indexX][indexY]);
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
                 if (i == 0 && j == 0) continue;
-                if (selectedValueOne == "S") {
+                if (sosGameMatrix[indexX][indexY].equals("S")) {
                     if (indexX + 2 * i >= 0 && indexX + 2 * i < dimension && indexY + 2 * j >= 0 && indexY + 2 * j < dimension) {
                         if (sosGameMatrix[indexX + i][indexY + j] == "O" && sosGameMatrix[indexX + 2 * i][indexY + 2 * j] == "S") {
                             score++;
@@ -344,12 +343,11 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
 
     @Override
     public int characterOcontrol(int indexX, int indexY) {
-        String selectedValueOne = sosGameMatrix[indexX][indexY];
-        System.out.println("Selected Value : " + selectedValueOne);
+        System.out.println("Selected Value : " + sosGameMatrix[indexX][indexY]);
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
                 if (i == 0 && j == 0) continue;
-                if (selectedValueOne == "O") {
+                if (sosGameMatrix[indexX][indexY].equals("O")) {
                     if ((indexX + i >= 0 && indexX + i < dimension && indexY + j >= 0 && indexY + j < dimension)
                             && (indexX - i >= 0 && indexX - i < dimension && indexY - j >= 0 && indexY - j < dimension)) {
                         if (sosGameMatrix[indexX + i][indexY + j] == "S" && sosGameMatrix[indexX - i][indexY - j] == "S") {
