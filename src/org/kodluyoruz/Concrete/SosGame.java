@@ -440,28 +440,17 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
      * */
     @Override
     public void whoIsTheGameWin() {
+        System.out.println("--------------------------------------------");
         if (playerScore > computerScore) {
-            System.out.println("--------------------------------------------");
             System.out.println("Player won the game!");
-            System.out.println("--------------------------------------------");
-            scoreBoard();
-            System.out.println("--------------------------------------------");
-            System.out.println("----------------------------The Game Over----------------------------------");
-
         } else if (playerScore < computerScore) {
-            System.out.println("--------------------------------------------");
             System.out.println("Computer won the game !");
-            System.out.println("--------------------------------------------");
-            scoreBoard();
-            System.out.println("--------------------------------------------");
-            System.out.println("----------------------------The Game Over----------------------------------");
         } else {
-            System.out.println("--------------------------------------------");
             System.out.println("The game ended in a draw !");
-            System.out.println("--------------------------------------------");
-            scoreBoard();
-            System.out.println("--------------------------------------------");
-            System.out.println("----------------------------The Game Over----------------------------------");
         }
+        System.out.println("--------------------------------------------");
+        scoreBoard();
+        System.out.println("--------------------------------------------");
+        System.out.println("----------------------------The Game Over----------------------------------");
     }
 }
