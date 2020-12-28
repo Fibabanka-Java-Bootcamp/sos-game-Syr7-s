@@ -344,6 +344,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
             System.out.println();
             switch (decision) {
                 case "Y":
+                    System.out.println("The Game has been exited.");
                     return;
                 case "C":
                     numberOfMatrixElementsControl();
