@@ -28,6 +28,11 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     private boolean computerOrder;
     private boolean indexState;
 
+    /*
+     * Between 3 and 7 take value from console by user.
+     * The number  is  checked between 3 and 7 values.
+     * If Character or String values enter from console, The program ends.
+     * */
     @Override
     public int setDimension() {
         while (true) {
@@ -50,12 +55,19 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
 
     }
+    /*
+     * After setDimension method, Sos Game panel set dimension with dimension value.
+     * And this step, it do  in the sosGameMatrixDimension method.
+     * */
 
     @Override
     public void sosGameMatrixDimension(int dimension) {
         sosGameMatrix = new String[dimension][dimension];
     }
 
+    /*
+     * Sos Panel is drawn with the sosGameBoard method.
+     * */
     @Override
     public void sosGameBoard() {
         System.out.println("--------------------------------------------");
@@ -75,6 +87,10 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         System.out.println("--------------------------------------------");
     }
 
+    /*
+     * Who will start playing the  game?
+     * The answer, in this method.
+     * */
     @Override
     public void decideToTheStartGame() {
         boolean start = random.nextBoolean();
@@ -90,6 +106,11 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         System.out.println("--------------------------------------------");
     }
 
+    /*
+     * Which player which character will take.
+     * The characters are given random to the players.
+     * This processes is did in this method.
+     * */
     @Override
     public void decideToTheCharacter() {
         boolean takeCharacter = random.nextBoolean();
@@ -100,25 +121,25 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         if (takeCharacter) {
             playerEnterCharacter = LETTER_S;
             computerEnterCharacter = LETTER_O;
-            System.out.println("--------------------------------------------");
-            System.out.println("Player will start with " + playerEnterCharacter + "  letter to the game.\n" +
-                    "Computer will start with " + computerEnterCharacter + " letter to the game.");
         } else {
             playerEnterCharacter = LETTER_O;
             computerEnterCharacter = LETTER_S;
-            System.out.println("--------------------------------------------");
-            System.out.println("Player will start with " + playerEnterCharacter + "  letter to the game.\n" +
-                    "Computer will start with " + computerEnterCharacter + " letter to the game.");
         }
+        System.out.println("--------------------------------------------");
+        System.out.println("Player will start with " + playerEnterCharacter + "  letter to the game.\n" +
+                "Computer will start with " + computerEnterCharacter + " letter to the game.");
         System.out.println("--------------------------------------------");
     }
 
+    /*
+     * IndexX and IndexY values are taken for player from playerEnterIndexValues method.
+     * */
     @Override
     public void playerEnterIndexValues() throws InputMismatchException {
         while (true) {
-            System.out.print("Enter indexX value : ");
+            System.out.print("Enter indexX value (between 0 and " + (dimension - 1) + "): ");
             playerIndexX = reader.nextInt();
-            System.out.print("Enter indexY value : ");
+            System.out.print("Enter indexY value (between 0 and " + (dimension - 1) + "): ");
             playerIndexY = reader.nextInt();
             boolean result = enterIndexXandIndexYvalues(playerIndexX, playerIndexY);
             if (result) {
@@ -127,6 +148,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     * IndexX and IndexY values are given random to the Computer.
+     * */
     @Override
     public void computerEnterIndexValues() {
         computerIndexX = random.nextInt(dimension);
@@ -135,6 +159,10 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         System.out.println("Computer IndexX value: " + computerIndexX + "\nComputer IndexY value : " + computerIndexY);
     }
 
+    /*
+     * IndexX and IndexY values are checked.
+     * I mean, Are the values between 3 and 7.
+     * */
     private boolean enterIndexXandIndexYvalues(int indexX, int indexY) {
         if (indexX < 0 || indexX >= dimension) {
             if (indexY < 0 || indexY >= dimension) {
@@ -154,6 +182,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     * Score Board is shown to the Players with the scoreBoard method.
+     *  */
     @Override
     public void scoreBoard() {
         System.out.println("--------------------------------------------");
@@ -167,6 +198,10 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         System.out.println("--------------------------------------------");
     }
 
+    /*
+     * The game is started with startGame method.
+     * If player press to the N letter, Game start method is run.
+     * */
     @Override
     public void startGame() {
         numberOfMatrixElements = dimension * dimension;
@@ -189,9 +224,8 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
                         System.out.println();
                         numberOfMatrixElements++;
                     } catch (RuntimeException exception) {
-                        System.out.println("Run Time exceptİon was occurred.");
+                        System.out.println("Runtime exception was occurred.");
                     }
-
                     break;
                 default:
                     System.out.println("Invalid character input.");
@@ -200,6 +234,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     * Free space control is done.
+     * */
     private void numberOfMatrixElementsControl() {
         if (numberOfMatrixElements <= 0) {
             System.out.println("There are no characters left to enter the panel, the game ends.");
@@ -208,6 +245,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     * The game is started with gameStart method.
+     * */
     private void gameStart() {
         if (playerOrder) {
             playerContinueGame();
@@ -216,6 +256,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     * if playerOrder value true, playerContinueGame method is run.
+     * */
     private void playerContinueGame() {
         numberOfMatrixElements--;
         do {
@@ -230,6 +273,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
 
     }
 
+    /*
+     * if playerOrder value false, comuputerContinueGame method is run.
+     * */
     private void computerContinueGame() {
         numberOfMatrixElements--;
         do {
@@ -242,6 +288,11 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         numberOfMatrixElementsControl();
     }
 
+    /*
+     * When Player or Computer enter the value,
+     * I mean if previously  entered the value to the field.
+     * Player or Computer should re-enter index values.
+     * */
     private boolean isMatrixIndexNull(int indexX, int indexY) {
         if (sosGameMatrix[indexX][indexY] == null) {
             return true;
@@ -254,6 +305,11 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     * The characters are entered to the SosGame Panel.
+     * SOS is checked. if Player or Computer  do SOS,
+     * Player or Computer are  earn point by the number of SOS
+     * */
     @Override
     public void characterEnterToThePanel(int indexX, int indexY, String character) {
         sosGameMatrix[indexX][indexY] = character;
@@ -272,6 +328,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     * if playerOrder true and playerCharacter S, Below method is run
+     * */
     private void playerOrderAndSletterControl(int indexX, int indexY) {
         sosCount = characterScontrol(indexX, indexY);
         if (sosCount > 0) {
@@ -283,6 +342,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     *  if computerOrder true and computerCharacter S, Below method is run
+     * */
     private void computerOrderAndSletterControl(int indexX, int indexY) {
         sosCount = characterScontrol(indexX, indexY);
         if (sosCount > 0) {
@@ -294,6 +356,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     *  if playerOrder true and playerCharacter O, Below method is run
+     * */
     private void playerOrderOletterControl(int indexX, int indexY) {
         sosCount = characterOcontrol(indexX, indexY);
         if (sosCount > 0 && sosCount <= 2) {
@@ -308,6 +373,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     *  if computerOrder true and computerCharacter O, Below method is run
+     * */
     private void computerOrderAndOletterControl(int indexX, int indexY) {
         sosCount = characterOcontrol(indexX, indexY);
         if (sosCount > 0 && sosCount <= 2) {
@@ -322,6 +390,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         }
     }
 
+    /*
+     * SOS control with the letter S.
+     * */
     @Override
     public int characterScontrol(int indexX, int indexY) {
 
@@ -342,6 +413,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
 
     }
 
+    /*
+     * SOS control with the letter O.
+     *   */
     @Override
     public int characterOcontrol(int indexX, int indexY) {
         System.out.println("Selected Value : " + sosGameMatrix[indexX][indexY]);
@@ -361,6 +435,9 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
         return score;
     }
 
+    /*
+     * Player Score and Computer Score are compared.
+     * */
     @Override
     public void whoIsTheGameWin() {
         if (playerScore > computerScore) {
