@@ -467,7 +467,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     private void playerOrderAndSletterControl(int indexX, int indexY) {
         sosCount = characterScontrol(indexX, indexY);
         if (sosCount > 0) {
-            System.out.println("Player won " + sosCount + " point\nThus, the Player won another game.");
+            System.out.println("Player won " + sosCount + " point\nThus, the Player won one more game.");
             playerScore += score;
         } else if (sosCount == 0) {
             playerOrder = false;
@@ -481,7 +481,7 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     private void computerOrderAndSletterControl(int indexX, int indexY) {
         sosCount = characterScontrol(indexX, indexY);
         if (sosCount > 0) {
-            System.out.println("Computer won " + sosCount + " point.\nThus, the Computer won another game.");
+            System.out.println("Computer won " + sosCount + " point.\nThus, The Computer won one more game.");
             computerScore += score;
         } else if (sosCount == 0) {
             computerOrder = false;
@@ -495,10 +495,10 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     private void playerOrderOletterControl(int indexX, int indexY) {
         sosCount = characterOcontrol(indexX, indexY);
         if (sosCount > 0 && sosCount <= 2) {
-            System.out.println("Player won 1 point\nThus, the Player won another game.");
+            System.out.println("Player won 1 point\nThus, The Player won one more game.");
             playerScore++;
         } else if (sosCount > 2) {
-            System.out.println("Player won " + (sosCount - 2) + " point.\nThus, the Player won another game.");
+            System.out.println("Player won " + (sosCount - 2) + " point.\nThus, The Player won one more game.");
             playerScore += 2;
         } else if (sosCount == 0) {
             playerOrder = false;
@@ -512,10 +512,10 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     private void computerOrderAndOletterControl(int indexX, int indexY) {
         sosCount = characterOcontrol(indexX, indexY);
         if (sosCount > 0 && sosCount <= 2) {
-            System.out.println("Computer won 1 point\nThus, the Computer won another game.");
+            System.out.println("Computer won 1 point\nThus, The Computer won one more game.");
             computerScore++;
         } else if (sosCount > 2) {
-            System.out.println("Computer won " + (sosCount - 2) + " point\nThus, the Computer won another game.");
+            System.out.println("Computer won " + (sosCount - 2) + " point\nThus, The Computer won one more game.");
             computerScore += 2;
         } else if (sosCount == 0) {
             playerOrder = true;
