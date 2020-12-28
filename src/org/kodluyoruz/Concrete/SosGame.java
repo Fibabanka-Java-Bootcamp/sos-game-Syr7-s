@@ -29,6 +29,138 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     private boolean indexState;
 
     /*
+    * Getter and Setter methods
+    * */
+    public String[][] getSosGameMatrix() {
+        return sosGameMatrix;
+    }
+
+    private void setSosGameMatrix(String[][] sosGameMatrix) {
+        this.sosGameMatrix = sosGameMatrix;
+    }
+
+    public String getPlayerEnterCharacter() {
+        return playerEnterCharacter;
+    }
+
+    private void setPlayerEnterCharacter(String playerEnterCharacter) {
+        this.playerEnterCharacter = playerEnterCharacter;
+    }
+
+    public String getComputerEnterCharacter() {
+        return computerEnterCharacter;
+    }
+
+    private void setComputerEnterCharacter(String computerEnterCharacter) {
+        this.computerEnterCharacter = computerEnterCharacter;
+    }
+
+    public int getDimension() {
+        return dimension;
+    }
+
+    private void setDimension(int dimension) {
+        this.dimension = dimension;
+    }
+
+    public int getPlayerIndexX() {
+        return playerIndexX;
+    }
+
+    private void setPlayerIndexX(int playerIndexX) {
+        this.playerIndexX = playerIndexX;
+    }
+
+    public int getPlayerIndexY() {
+        return playerIndexY;
+    }
+
+    private void setPlayerIndexY(int playerIndexY) {
+        this.playerIndexY = playerIndexY;
+    }
+
+    public int getComputerIndexX() {
+        return computerIndexX;
+    }
+
+    private void setComputerIndexX(int computerIndexX) {
+        this.computerIndexX = computerIndexX;
+    }
+
+    public int getComputerIndexY() {
+        return computerIndexY;
+    }
+
+    private void setComputerIndexY(int computerIndexY) {
+        this.computerIndexY = computerIndexY;
+    }
+
+    public int getNumberOfMatrixElements() {
+        return numberOfMatrixElements;
+    }
+
+    private void setNumberOfMatrixElements(int numberOfMatrixElements) {
+        this.numberOfMatrixElements = numberOfMatrixElements;
+    }
+
+    public int getSosCount() {
+        return sosCount;
+    }
+
+    private void setSosCount(int sosCount) {
+        this.sosCount = sosCount;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    private void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getPlayerScore() {
+        return playerScore;
+    }
+
+    private void setPlayerScore(int playerScore) {
+        this.playerScore = playerScore;
+    }
+
+    public int getComputerScore() {
+        return computerScore;
+    }
+
+    private void setComputerScore(int computerScore) {
+        this.computerScore = computerScore;
+    }
+
+    public boolean isPlayerOrder() {
+        return playerOrder;
+    }
+
+    private void setPlayerOrder(boolean playerOrder) {
+        this.playerOrder = playerOrder;
+    }
+
+    public boolean isComputerOrder() {
+        return computerOrder;
+    }
+
+    private void setComputerOrder(boolean computerOrder) {
+        this.computerOrder = computerOrder;
+    }
+
+    public boolean isIndexState() {
+        return indexState;
+    }
+
+    private void setIndexState(boolean indexState) {
+        this.indexState = indexState;
+    }
+
+
+    /*
      * Between 3 and 7 take value from console by user.
      * The number  is  checked between 3 and 7 values.
      * If Character or String values enter from console, The program ends.
