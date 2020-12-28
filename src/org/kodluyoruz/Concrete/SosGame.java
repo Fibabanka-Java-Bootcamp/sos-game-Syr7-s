@@ -29,8 +29,8 @@ public class SosGame implements org.kodluyoruz.Abstract.SosGame {
     private boolean indexState;
 
     /*
-    * Getter and Setter methods
-    * */
+     * Getter and Setter methods
+     * */
     public String[][] getSosGameMatrix() {
         return sosGameMatrix;
     }
