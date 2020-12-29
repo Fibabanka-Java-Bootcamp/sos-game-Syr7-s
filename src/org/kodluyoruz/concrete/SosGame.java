@@ -1,10 +1,10 @@
-package org.kodluyoruz.Concrete;
+package org.kodluyoruz.concrete;
 
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-public class SosGame implements org.kodluyoruz.Abstract.SosGame {
+public class SosGame implements org.kodluyoruz.abstrct.SosGame {
     Random random = new Random();
     Scanner reader = new Scanner(System.in);
     //Arrays

@@ -1,4 +1,4 @@
-package org.kodluyoruz.Abstract;
+package org.kodluyoruz.abstrct;
 
 public interface SosGame {
     String LETTER_S = "S";

@@ -1,6 +1,6 @@
 package org.kodluyoruz;
 
-import org.kodluyoruz.Concrete.SosGame;
+import org.kodluyoruz.concrete.SosGame;
 
 public class Main {
 
